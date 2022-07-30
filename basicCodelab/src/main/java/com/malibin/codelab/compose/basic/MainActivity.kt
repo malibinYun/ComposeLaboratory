@@ -3,7 +3,6 @@ package com.malibin.codelab.compose.basic
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -17,12 +16,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeBasicCodelabTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.primary) {
-                    Greeting("Android")
-                }
+                ComposeLaboratoryBasicApp()
             }
         }
+    }
+}
+
+@Composable
+private fun ComposeLaboratoryBasicApp() {
+    Surface(color = MaterialTheme.colors.background) {
+        Greeting(name = "Android")
     }
 }
 
