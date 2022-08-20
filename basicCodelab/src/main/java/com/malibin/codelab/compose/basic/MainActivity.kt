@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -23,7 +24,37 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun ComposeLaboratoryBasicApp(names: List<String> = listOf("Android", "Malibin")) {
+private fun ComposeLaboratoryBasicApp() {
+    var shouldShowOnboarding: Boolean by remember { mutableStateOf(true) }
+
+    if (shouldShowOnboarding) {
+        OnboardingScreen(onContinueClicked = { shouldShowOnboarding = false })
+    } else {
+        Greetings()
+    }
+}
+
+@Composable
+fun OnboardingScreen(onContinueClicked: () -> Unit) {
+    Surface {
+        Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Text(text = "Welcome to Basics Codelab!")
+            Button(
+                    modifier = Modifier.padding(vertical = 24.dp),
+                    onClick = onContinueClicked,
+            ) {
+                Text(text = "Continue")
+            }
+        }
+    }
+}
+
+@Composable
+private fun Greetings(names: List<String> = listOf("Android", "Malibin")) {
     Column(
             modifier = Modifier.padding(
                     horizontal = 8.dp,
@@ -70,5 +101,13 @@ fun Greeting(name: String) {
 fun DefaultPreview() {
     ComposeBasicCodelabTheme {
         ComposeLaboratoryBasicApp()
+    }
+}
+
+@Preview(showBackground = true, widthDp = 320, heightDp = 320)
+@Composable
+fun OnboardingPreview() {
+    ComposeBasicCodelabTheme {
+        OnboardingScreen(onContinueClicked = {})
     }
 }
