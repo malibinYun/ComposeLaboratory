@@ -104,9 +104,31 @@ fun AlignYourBodyElement(
 // Step: Favorite collection card - Material Surface
 @Composable
 fun FavoriteCollectionCard(
+        @DrawableRes imageResId: Int,
+        @StringRes titleResId: Int,
         modifier: Modifier = Modifier,
 ) {
-    // Implement composable here
+    Surface(
+            modifier = modifier,
+            shape = MaterialTheme.shapes.small,
+    ) {
+        Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.width(192.dp)
+        ) {
+            Image(
+                    painter = painterResource(imageResId),
+                    contentDescription = null,
+                    modifier = Modifier.size(56.dp),
+                    contentScale = ContentScale.Crop
+            )
+            Text(
+                    text = stringResource(titleResId),
+                    style = MaterialTheme.typography.h3,
+                    modifier = Modifier.padding(horizontal = 16.dp)
+            )
+        }
+    }
 }
 
 // Step: Align your body row - Arrangements
@@ -197,6 +219,8 @@ fun AlignYourBodyElementPreview() {
 fun FavoriteCollectionCardPreview() {
     MySootheTheme {
         FavoriteCollectionCard(
+                imageResId = R.drawable.fc2_nature_meditations,
+                titleResId = R.string.fc2_nature_meditations,
                 modifier = Modifier.padding(8.dp)
         )
     }
