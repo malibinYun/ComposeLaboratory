@@ -28,7 +28,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun ComposeLaboratoryTheme(
+fun BasicStateCodelabTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
