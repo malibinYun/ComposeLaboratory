@@ -10,6 +10,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/ThemingCodelab" />
             <option value="$PROJECT_DIR$/basicCodelab" />
             <option value="$PROJECT_DIR$/basicStateCodelab" />
             <option value="$PROJECT_DIR$/layoutCodelab" />

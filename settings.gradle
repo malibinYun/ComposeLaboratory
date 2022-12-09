@@ -16,3 +16,4 @@ rootProject.name = "ComposeLaboratory"
 include ':basicCodelab'
 include ':layoutCodelab'
 include ':basicStateCodelab'
+include ':ThemingCodelab'
